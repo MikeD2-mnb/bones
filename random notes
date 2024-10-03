@@ -1,0 +1,74 @@
+>connect to 192.168.7.2 with ssh physical connection via usb or 115200 serial
+SSH debian@192.168.7.2
+> deault password "temppwd" (Who changes this??)
+sudo systemctl enable bb-code-server
+sudo systemctl start bb-code-server
+Wifi password "BeagleBone"
+ wpa_supplicant:
+ wpa_cli   ## WPA in command line mode.
+ list_networks
+ flush
+ add_network
+ >set_network <network id> <variable> <value> 
+ >ssid (network name, SSID)
+ > psk (WPA passphrase or pre-shared key)
+ > key_mgmt (key management protocol)
+ > identity (EAP identity)
+ > password (EAP password)
+set_network 0 ssid "ssid"
+ set_network 0 psk "ppppp"
+ enable_network 0
+status
+save
+
+
+
+wpa_passphrase "ssid" "pppp"  | sudo tee /etc/wpa_supplicant.conf
+
+
+++++++++++++++++++++++++++++++=
+C Compiling
+
+for the program to have root privelages it must either be executed as root or be setuid root. being setuid root means that the program binary is owned by root, and executes as root even when a normal user runs it. to make and executable setuid root do this:
+
+sudo chown root executable  << done firest did not work without the other..
+sudo chmod a+xs executable   << this worked
+
+How do I generate symbolic information for gdb and warning messages?
+
+The syntax is as follows C compiler:
+cc -g -Wall input.c -o executable
+
+The syntax is as follows C++ compiler:
+g++ -g -Wall input.C -o executable 
+
+
+********************************************8
+DTBO
+dtc -O dtb -o BB-SPIb0-00A0.dtbo sbb-spidev0-00a0.dts
+
+
+
+ dtc -I dtb -O dts old/BB-SPIDEV0-00A0.dtbo -o old/sbb-spidev0-00a0.dts
+ 
+ *****************************8
+ gpioinfo | grep -i -e chip -e P9_14
+piochip1 - 32 lines:
+        line  18: "P9_14 [ehrpwm1a]" "P9_14" input active-high [used]
+gpiochip0 - 32 lines:
+        line   5: "P9_17 [spi0_cs0]" "P9_17" input active-high [used]
+ piochip1 - 32 lines:
+        line  28:      "P9_12"      "P9_12"   input  active-high [used]
+gpiochip1 - 32 lines:
+        line  17:      "P9_23"      "P9_23"   input  active-high [used]
+gpiochip3 - 32 lines:
+        line  15: "P9_29 [spi1_d0]" "P9_29" input active-high [used]
+gpiochip3 - 32 lines:
+        line  21:      "P9_25"      "P9_25"   input  active-high [used]
+gpiochip3 - 32 lines:
+        line  19:      "P9_27"      "P9_27"   input  active-high [used]
+                                                       
+
+
+
+
