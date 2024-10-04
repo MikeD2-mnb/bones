@@ -68,7 +68,11 @@ gpiochip3 - 32 lines:
 gpiochip3 - 32 lines:
         line  19:      "P9_27"      "P9_27"   input  active-high [used]
                                                        
-
+***************************
+to run SPI access executable needs to run as root (WHY? I2C use doesn't need root powers)
+chown root executable
+chmod a+xs executable
+**********************************************
 
 
 
