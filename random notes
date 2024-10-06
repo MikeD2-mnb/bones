@@ -72,6 +72,9 @@ gpiochip3 - 32 lines:
 to run SPI access executable needs to run as root (WHY? I2C use doesn't need root powers)
 chown root executable
 chmod a+xs executable
+OR:-
+sudo chown debian /dev/spidev0.0
+this changes the ownership of the spi entry piont, root access to the port is no longer required.
 **********************************************
 
 
