@@ -5,3 +5,4 @@ Hopefully this will hold working examples for Beaglebone
 2) GPIO - the c examples included in the os using gpiod don't compile. I havent managed to find any working gpiod c code.  I've put a simple c lib together that uses the /sys/class/gpio.
 3) SPIDEV DTBO - the device tree overlays for the SPI_DEV distributed with the latest IOT firmware for the beaglebones don't work. The older DTBO's still do, and the current ones can be edited to make them work - some of the pin register valuse are set incorrectly.
 4) The BBB-.ods file contains a spreadsheet of the p9 pins, pin register offsets and the various mode functions. usefull for planing interface allocation
+5) uEnv.txt file for BBB /BBG is example wiht SPI dtbo files added.
