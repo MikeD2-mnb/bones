@@ -3,10 +3,13 @@ import board
 import busio
 import os
 
-os.system("config-pin P9.17 spi_cs")
-os.system("config-pin P9.18 spi")
-os.system("config-pin P9.21 spi")
-os.system("config-pin P9.22 spi_sclk")
+try:
+    os.system("config-pin P9.17 spi_cs")
+    os.system("config-pin P9.18 spi")
+    os.system("config-pin P9.21 spi")
+    os.system("config-pin P9.22 spi_sclk")
+except Exception as e:
+    print(e)
 
 spi = busio.SPI(board.SCLK, board.MOSI, board.MISO)
 while not spi.try_lock():
